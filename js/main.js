@@ -25,10 +25,17 @@ function emptyS() {
         return false;
     }
 }
-
+function load()
+{
+    if(JSON.parse(localStorage.getItem('users')))  
+    {
+        UsersA = JSON.parse(localStorage.getItem('users'));
+    }
+}
 function signup()
 {
-    UsersA = JSON.parse(localStorage.getItem('users'));   
+    load();
+    
     if(emptyS()==true)
     {
         exist.innerHTML='<span class="text-danger m-3">All inputs is required</span>';
@@ -80,7 +87,7 @@ function emptyL() {
 }
 function login()
 {
-    UsersA = JSON.parse(localStorage.getItem('users'));   
+    load(); 
     if(emptyL()==true)
     {
         incorrect.innerHTML='<span class="text-danger m-3">All inputs is required</span>';
